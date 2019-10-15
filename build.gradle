@@ -29,9 +29,9 @@ allprojects {
 
         // ---- 溢米直播云 ----
         // 溢米Repo 内网
-        maven { url 'http://192.168.1.108:8081/artifactory/libs-release-local/' }
+        //maven { url 'http://192.168.1.108:8081/artifactory/libs-release-local/' }
         // 溢米Repo 公网 需添加用户IP白名单
-        //maven { url 'http://180.167.23.214:8081/artifactory/libs-release-local/' }
+        maven { url 'http://180.167.23.214:8081/artifactory/libs-release-local/' }
         maven { url "https://jitpack.io" }
         // ---- END ----
 
@@ -42,10 +42,4 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-def uploadMavenValue = project.hasProperty('uploadMaven') ? uploadMaven : "false"
-ext {
-    uploadMaven = "$uploadMavenValue"
-    UseSDKVersion = "4.8.148"
 }
