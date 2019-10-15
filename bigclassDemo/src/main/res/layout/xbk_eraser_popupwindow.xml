@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_15">
+
+    <com.xiaozuke.view.CircleView
+        android:id="@+id/circle_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <com.xiaozuke.view.SeekBarView
+        android:id="@+id/seekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/clear_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="29dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/clearall_relative_layout"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gainsboro"
+            android:gravity="center"
+            android:padding="@dimen/margin10">
+
+            <ImageView
+                android:id="@+id/clearall_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/xb_cr_btn_clearall_disable" />
+
+            <TextView
+                android:textColor="@color/f666666_gray"
+                android:id="@+id/clearall_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:layout_toRightOf="@+id/clearall_iv"
+                android:text="清除所有"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/back_ahead_realative_layout"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin10"
+            android:background="@color/gainsboro"
+            android:gravity="center"
+            android:padding="@dimen/margin10">
+
+            <ImageView
+                android:id="@+id/back_ahead_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/xb_cr_btn_back_disable" />
+
+            <TextView
+                android:textColor="@color/f666666_gray"
+                android:id="@+id/back_ahead_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin5dp"
+                android:layout_toRightOf="@+id/back_ahead_iv"
+                android:text="撤销"
+                android:textSize="10sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#eeeeee">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_top">
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/margin5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/course_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin20"
+                android:textSize="14dp"
+                android:textColor="@color/black_333333"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+
+                 />
+
+            <TextView
+                android:padding="@dimen/margin5dp"
+                android:id="@+id/exit_class_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin10"
+                android:textSize="9dp"
+                android:background="@drawable/bg_comment_edit"
+                android:textColor="@color/black_333333"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="退出教室 →" />
+
+            <com.xiaozuke.view.ScRoomNetStatusView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/exit_class_room"
+                android:id="@+id/cv_net_status"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:id="@+id/ll_bottom">
+
+        <ImageView
+            android:id="@+id/xb_cr_pen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xb_cr_btn_pen_defult" />
+
+        <ImageView
+            android:id="@+id/xb_cr_erase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:src="@drawable/xb_cr_btn_erase_defult" />
+
+        <ImageView
+            android:id="@+id/xb_cr_namebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:src="@drawable/xb_cr_btn_namebook_defult" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sel_consultation"
+            android:layout_marginLeft="@dimen/margin30"
+            android:id="@+id/xb_cr_consultation"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_add_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:src="@drawable/xb_cr_btn_namebook_defult" />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_next_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:src="@drawable/xb_cr_btn_namebook_defult" />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_pre_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:src="@drawable/xb_cr_btn_namebook_defult" />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_goto_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:src="@drawable/xb_cr_btn_namebook_defult" />
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_set_token"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin30"
+            android:text="设置token"
+            android:src="@drawable/xb_cr_btn_namebook_defult" />
+
+        <TextView
+            android:id="@+id/txt_current_page"
+            android:text="0"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/margin30"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/txt_sum_page"
+            android:visibility="gone"
+            android:text="/0"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_native_course_ware"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:layout_below="@id/ll_top"
+            android:layout_above="@id/ll_bottom"
+            >
+            <FrameLayout
+                android:layout_centerInParent="true"
+                android:id="@+id/frame_course_ware_view"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="match_parent">
+            </FrameLayout>
+
+            <com.yimi.whiteboard.view.CloudBoardView
+                android:layout_centerInParent="true"
+                android:id="@+id/cloudboard_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/transparent"
+                android:visibility="visible" />
+
+            <com.yimi.rab.view.homework.LongImgMoveBarView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@color/trans"
+                android:id="@+id/id_hw_move_bar"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+
+    <com.yimi.baselib.view.YMFDTimerDragView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/xbk_56dp"
+        android:layout_marginRight="@dimen/xbk_8dp"
+        android:visibility="gone"
+        android:id="@+id/rl_time_countdown_container"/>
+</RelativeLayout>

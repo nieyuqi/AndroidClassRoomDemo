@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_father"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:background="#78000000">
+
+    <LinearLayout
+        android:layout_width="@dimen/mc_dp_280"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/mc_dp_20"
+        android:paddingRight="@dimen/mc_dp_20"
+        android:paddingTop="@dimen/mc_dp_10"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/network_list_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你的帐号已在其他设备登录，您已被迫下线"
+            android:textSize="@dimen/mc_sp_14"
+            android:layout_marginTop="@dimen/mc_dp_12"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:textColor="@color/teacher_name_color"
+            />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mc_dp_20"
+            android:layout_marginBottom="@dimen/mc_dp_25"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/test_room_determine_button"
+                android:gravity="center"
+                android:text="登录"
+                android:padding="@dimen/mc_dp_5"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/mc_sp_14" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="schedule_fragment_title_text">
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#111111</item>
+    </style>
+
+    <style name="schedule_fragment_linear">
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:paddingRight">20dip</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="schedule_fragment_listItem_button">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/schedule_text_blue</item>
+        <item name="android:paddingTop">12dip</item>
+        <item name="android:paddingBottom">12dip</item>
+        <item name="android:drawablePadding">10dip</item>
+    </style>
+
+    <style name="schedule_list_item_theme_title">
+        <item name="android:textColor">#999999</item>
+    </style>
+
+    <style name="schedule_list_item_theme_content">
+        <item name="android:textColor">#555555</item>
+    </style>
+
+
+    <style name="xiaobanke_bottom_tab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/xiaoban_bottom_tab_color</item>
+    </style>
+
+
+    <style name="text_gray_15">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#363636</item>
+    </style>
+    <style name="scmallclass_course_list">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/back_999999</item>
+    </style>
+
+    <!-- 自定义dialog -->
+    <style name="ymfd_dialog_style" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+
+
+
+</resources>

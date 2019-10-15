@@ -1,0 +1,51 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.2.51'
+    ext.packer_version = '1.0.8'
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "com.mcxiaoke.gradle:packer-ng:$packer_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        // 添加SDK需要的路由插件WMRouter
+        classpath "com.sankuai.waimai.router:plugin:1.2.0"
+
+        // for yimi maven uploading
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.9.0" //old: 3.1.1
+    }
+}
+
+allprojects {
+    // for yimi maven uploading
+    apply plugin: 'com.jfrog.artifactory'
+    repositories {
+
+        // ---- 溢米直播云 ----
+        // 溢米Repo 内网
+        maven { url 'http://192.168.1.108:8081/artifactory/libs-release-local/' }
+        // 溢米Repo 公网 需添加用户IP白名单
+        //maven { url 'http://180.167.23.214:8081/artifactory/libs-release-local/' }
+        maven { url "https://jitpack.io" }
+        // ---- END ----
+
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+def uploadMavenValue = project.hasProperty('uploadMaven') ? uploadMaven : "false"
+ext {
+    uploadMaven = "$uploadMavenValue"
+    UseSDKVersion = "4.8.148"
+}

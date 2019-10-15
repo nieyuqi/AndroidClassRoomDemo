@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_weight="1"
+        android:src="@drawable/fileupload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ImageView>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_root_view2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:alwaysDrawnWithCache="true"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/rl_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="50dp"
+                android:gravity="center">
+
+
+                <ImageView
+                    android:id="@+id/iv_user_head"
+                    android:layout_width="132dp"
+                    android:layout_height="88dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:src="@mipmap/zhiboyun" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
+
+
+                    <EditText
+                        android:id="@+id/txt_login_phone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/ebpay_dimen_50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:background="@drawable/login_user_selector"
+                        android:hint="请输入手机号"
+                        android:inputType="phone"
+                        android:paddingLeft="15dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#ffff5500"
+                        android:textColorHint="#ffaaaaaa"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="22sp" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
+
+
+                    <EditText
+                        android:id="@+id/txt_login_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/ebpay_dimen_50dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/login_user_selector"
+                        android:hint="请输入密码"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:singleLine="true"
+                        android:textColor="#ff666666"
+                        android:textColorHint="#ffaaaaaa"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/bt_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/login_bg_selector"
+                    android:text="登录"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="50dp">
+
+                    <TextView
+                        android:id="@+id/txt_version"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:text="版本号:1.0.0.1"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/checkBox"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="110dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:text="设置环境"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_version"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="16dp" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
+

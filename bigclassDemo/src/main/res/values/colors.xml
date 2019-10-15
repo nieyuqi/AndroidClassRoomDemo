@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navigation_bar">#eb6f3c</color>
+    <color name="white">#ffffff</color>
+    <color name="gold">#b89766</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#ff000000</color>
+    <color name="sc_transparent_background">#00111111</color>
+    <!-- 教室左边栏背景 -->
+    <!-- 支付  中间的线-->
+    <color name="pay_line">#eeeeee</color>
+      <!-- 支付  边的线-->
+
+    <!-- MainFragmentActivity 底部Item 点击后的颜色 -->
+    <color name="main_fragment_boom_item_select">#333639</color>
+    <!-- MainFragmentActivity 底部Item 松开后的颜色 -->
+    <color name="main_fragment_boom_item_loosen">#6a6a6e</color>
+    
+    <color name="schedule_background">#f1f1f1</color>
+    <color name="schedule_title">#df631d</color>
+    <color name="schedule_line">#d9d9d9</color>
+    <color name="schedule_text_blue">#58b1e9</color>
+
+    <color name="schedule_text_gray">#aaaaaa</color>
+    <color name="schedule_select_line">#d3d6d9</color>
+    <color name="empty_time_can_click_state">#555555</color>
+    <color name="time_no_content">#eeeff0</color>
+
+    <!-- ScreenActivity -->
+    <color name="screen_tag">#363636</color>
+    <color name="screen_time_change">#999999</color>
+
+    <!-- FeedbackActivity -->
+    <!-- 透明色 -->
+    <!-- CourierActivity -->
+	<color name="no_message_back">#f3f7fa</color>
+    <color name="courier_title_black">#333639</color>
+    <color name="courier_time">#999999</color>
+    <color name="courier_context">#53555a</color>
+    <color name="message_unread">#333639</color>
+    <color name="list_line">#d6d9de</color>
+	<!-- MessageContentActivity -->
+	<color name="message_content_title">#111</color>
+	<color name="message_content">#333</color>
+	<color name="message_content_line">#e0e3e9</color>
+    <!-- TestStudentBlackboardActivity -->
+    <color name="teacher_name_color">#333333</color>
+    <color name="student_name_color">#666666</color>
+    <color name="top_linear_line">#eeeeee</color>
+    <color name="courseware_eidt_num">#222222</color>
+    <color name="courseware_total_num">#bbbbbb</color>
+
+    <!--<ScheduleFragment>-->
+    <color name="schedule_red">#f36b6b</color>
+    <color name="schedule_blue">#55aaee</color>
+    <color name="schedule_green">#669999</color>
+    <color name="schedule_grey">#999999</color>
+    <color name="check_courseware">#c3c6c9</color>
+    <color name="gary_c3c3c3">#c3c3c3</color>
+    <!--PayPopupWindow-->
+    <color name="paypopupwindow_title">#111111</color>
+
+
+    <color name="gray_light">#DFDFDF</color>
+
+    <!-- 主背景色值 -->
+    <color name="text_color_black">#323232</color>
+    <color name="main_title_black">#111111</color>
+
+    <!--tab颜色-->
+    <color name="tab_nor_color">#6a6a6e</color>
+
+    <!--HomepageFragment-->
+    <color name="homepage_back_f0f0f0">#f0f0f0</color>
+    <color name="homepage_line_e3e6e9">#78e3e6e9</color>
+    <color name="homepage_line_f3f6f9">#f3f6f9</color>
+    <color name="homepage_label_9c9c9e">#9c9c9e</color>
+    <color name="homepage_item_title">#333333</color>
+    <color name="homepage_item_content">#666666</color>
+
+    <!--RedPacket-->
+    <color name="redpacket_topbar">#111111</color>
+    <color name="redpacket_done">#669966</color>
+    <color name="redpacket_over">#999999</color>
+    <color name="redpacket_expire_normal">#111</color>
+    <color name="redpacket_expire_over">#aaa</color>
+
+    <color name="gray_e3e6e9">#e3e6e9</color>
+    <color name="gray_c3c6c9">#c3c6c9</color>
+
+    <color name="text_version">#e3e6e9</color>
+
+    <color name="material_lightblue_500">#ff03a9f4</color>
+    <color name="material_lightblue_700">#ff0288d1</color>
+    <color name="material_teal_500">#ff009688</color>
+    <color name="material_yellow_500">#ffffeb3b</color>
+    <color name="material_pink_500">#ffe91e63</color>
+    <color name="fenshu_green">#73c815</color>
+    <color name="weipigai_gay">#9fabb8</color>
+
+    <color name="pigai_purple">#AA95BC</color>
+    <color name="pigai_red">#FF7777</color>
+    <color name="question_correct_green">#44eac6</color>
+    <color name="book_name_upwindow_color">#999999</color>
+    <color name="upwindow_teacher_name_color">#FF6633</color>
+    <color name="upwindow_teacher_name_bg_color">#fffff9f6</color>
+    <color name="upwindow_title_bg_color">#fff9f9f9</color>
+
+    <color name="back_999999">#999999</color>
+
+    <color name="screen_sure_button">#FF5000</color>
+
+    <color name="divder_grey_color">#cccccc</color>
+
+    <color name="gray_f9f9f9">#F9F9F9</color>
+    <color name="text_register">#ff5000</color>
+    <color name="report_item_color">#666666</color>
+    <color name="report_item_select">#FF6633</color>
+    <color name="redpacket_wait">#ff5000</color>
+
+</resources>

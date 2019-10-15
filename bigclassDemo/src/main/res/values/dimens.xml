@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--小班课视频界面margin-->
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin5dp">5dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin35">35dp</dimen>
+    <dimen name="bd_wallet_normal_line_height_1dp">1dp</dimen>
+    <dimen name="height_10dp">10dp</dimen>
+    <dimen name="height_15dp">15dp</dimen>
+
+    <dimen name="ebpay_dimen_10dp">10dp</dimen>
+
+    <dimen name="ebpay_dimen_50dp">50dp</dimen>
+
+    <dimen name="xbk_2dp">2dp</dimen>
+    <dimen name="xbk_8dp">8dp</dimen>
+    <dimen name="xbk_12sp">12sp</dimen>
+    <dimen name="xbk_48sp">48sp</dimen>
+    <dimen name="xbk_23sp">23sp</dimen>
+    <dimen name="xbk_16sp">16sp</dimen>
+    <dimen name="xbk_8sp">8sp</dimen>
+    <dimen name="xbk_32sp">32sp</dimen>
+    <dimen name="xbk_48dp">48dp</dimen>
+    <dimen name="xbk_20dp">20dp</dimen>
+    <dimen name="xbk_72dp">72dp</dimen>
+    <dimen name="xbk_56dp">56dp</dimen>
+    <dimen name="xbk_100dp">100dp</dimen>
+    <dimen name="xbk_150dp">150dp</dimen>
+    <dimen name="xbk_200dp">200dp</dimen>
+    <dimen name="xbk_400dp">400dp</dimen>
+    <dimen name="xbk_300dp">300dp</dimen>
+    <dimen name="xbk_260dp">260dp</dimen>
+
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+
+</resources>

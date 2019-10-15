@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/cover_iv"
+        android:layout_width="260dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/course_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="课程名"
+        android:textColor="@color/background_material_dark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/cover_iv" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/scmallclass_course_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="上课时间段:"
+        app:layout_constraintStart_toStartOf="@+id/course_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/course_name_tv" />
+
+    <TextView
+        android:id="@+id/start_end_time_tv"
+        style="@style/scmallclass_course_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="04:34-23:45"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/scmallclass_course_list"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="开课时间:"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/course_time_tv"
+        style="@style/scmallclass_course_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是开课时间"
+        app:layout_constraintStart_toStartOf="@+id/start_end_time_tv"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <ImageView
+        android:id="@+id/head_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/xb_index_btn_order_sed"
+        app:layout_constraintBottom_toTopOf="@+id/course_time_tv"
+        app:layout_constraintEnd_toEndOf="@+id/cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/start_end_time_tv" />
+
+    <TextView
+        android:id="@+id/teacher_name_tv"
+        style="@style/scmallclass_course_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="王二"
+        app:layout_constraintEnd_toEndOf="@+id/head_iv"
+        app:layout_constraintStart_toStartOf="@+id/head_iv"
+        app:layout_constraintTop_toBottomOf="@+id/head_iv" />
+
+</android.support.constraint.ConstraintLayout>
