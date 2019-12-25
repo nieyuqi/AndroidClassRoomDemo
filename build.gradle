@@ -27,7 +27,7 @@ allprojects {
     apply plugin: 'com.jfrog.artifactory'
     repositories {
 
-        // ---- 溢米直播云 ----
+        // ---- 溢慧云 ----
         // 溢米Repo 内网
         //maven { url 'http://192.168.1.108:8081/artifactory/libs-release-local/' }
         // 溢米Repo 公网 需添加用户IP白名单
@@ -42,4 +42,11 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+def uploadMavenValue = project.hasProperty('uploadMaven') ? uploadMaven : "false"
+def jenkinsBuildValue = project.hasProperty('jenkinsBuild') ? jenkinsBuild : "false"
+ext {
+    uploadMaven = "$uploadMavenValue"
+    jenkinsBuild = "$jenkinsBuildValue"
 }

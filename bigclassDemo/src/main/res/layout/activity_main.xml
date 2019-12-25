@@ -6,171 +6,208 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_change_demo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
-        android:text="切换Demo"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/edt_group_id"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="563dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_play_record"
-        android:layout_width="230dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/btn_open_record_bg"
-        android:text="查看录播"
-        android:textColor="#FFFFFF"
-        android:textSize="29sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/edt_group_id"
-        app:layout_constraintStart_toEndOf="@+id/btn_go_class"
-        app:layout_constraintTop_toBottomOf="@+id/edt_group_id"
-        tools:ignore="MissingConstraints" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_go_class"
-        android:layout_width="230dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/btn_open_record_bg"
-        android:text="进入教室"
-        android:textColor="#FFFFFF"
-        android:textSize="29sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_play_record"
-        app:layout_constraintStart_toEndOf="@+id/btn_set_env"
-        app:layout_constraintTop_toTopOf="@+id/btn_play_record"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/btn_change_demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="176dp"
+                android:text="切换Demo"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/edt_group_id"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="563dp" />
 
-    <Button
-        android:id="@+id/btn_set_env"
-        android:layout_width="230dp"
-        android:layout_height="75dp"
-        android:background="@drawable/btn_set_env_bg"
-        android:text="切换环境"
-        android:textColor="#BDBDBD"
-        android:textSize="29sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_play_record"
-        app:layout_constraintStart_toStartOf="@+id/edt_group_id"
-        app:layout_constraintTop_toTopOf="@+id/btn_play_record"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/btn_courseware"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:background="@drawable/btn_open_record_bg"
+                android:text="查看课件"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_record"
+                app:layout_constraintEnd_toStartOf="@+id/btn_play_record"
+                app:layout_constraintStart_toEndOf="@+id/btn_go_class"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_record"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btn_courseware"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="查看课件"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_group_id"
-        app:layout_constraintStart_toEndOf="@+id/btn_go_class"
-        tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/btn_play_record"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/btn_open_record_bg"
+                android:text="查看录播"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/edt_group_id"
+                app:layout_constraintTop_toBottomOf="@+id/edt_group_id"
+                tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/edt_plan_id"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="114dp"
-        android:background="@drawable/login_user_selector"
-        android:ems="10"
-        android:hint="请输入房间号:"
-        android:inputType="textPersonName"
-        android:paddingLeft="40dp"
-        android:textColor="#FF5500"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_plan_id"
-        tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/btn_go_class"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:background="@drawable/btn_open_record_bg"
+                android:text="进入教室"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_record"
+                app:layout_constraintEnd_toStartOf="@+id/btn_courseware"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toEndOf="@+id/btn_set_env"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_record"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/edt_user_id"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="114dp"
-        android:background="@drawable/login_user_selector"
-        android:ems="10"
-        android:hint="请输入uid:"
-        android:inputType="textPersonName"
-        android:paddingLeft="40dp"
-        android:textColor="#FF5500"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_plan_id"
-        tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/btn_set_env"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:background="@drawable/btn_set_env_bg"
+                android:text="切换环境"
+                android:textColor="#BDBDBD"
+                android:textSize="16sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_record"
+                app:layout_constraintStart_toStartOf="@+id/edt_group_id"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_record"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/edt_group_id"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="114dp"
-        android:background="@drawable/login_user_selector"
-        android:ems="10"
-        android:hint="请输入groupid:"
-        android:inputType="textPersonName"
-        android:paddingLeft="40dp"
-        android:textColor="#FF5500"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_user_id"
-        tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edt_plan_id"
+                android:layout_width="663dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="42dp"
+                android:background="@drawable/login_user_selector"
+                android:ems="10"
+                android:hint="请输入房间号:"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:textColor="#FF5500"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_plan_id"
+                tools:ignore="MissingConstraints" />
 
-    <!--    <ImageButton
-            android:id="@+id/btn_go_class"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="12dp"
-            android:background="@color/transparent"
-            android:scaleType="fitXY"
-            android:src="@drawable/goto_class_selector"
-            android:text="进入教室"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/edt_plan_id"
-            app:layout_constraintEnd_toEndOf="@+id/edt_plan_id"
-            app:layout_constraintTop_toTopOf="@+id/edt_plan_id"
-            tools:ignore="MissingConstraints" />-->
+            <EditText
+                android:id="@+id/edt_user_id"
+                android:layout_width="663dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="41dp"
+                android:background="@drawable/login_user_selector"
+                android:ems="10"
+                android:hint="请输入uid:"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:textColor="#FF5500"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_plan_id"
+                tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/txt_plan_id"
-        android:layout_width="302dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        android:gravity="center_vertical"
-        android:scaleType="fitXY"
-        android:src="@mipmap/yimiyun"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edt_group_id"
+                android:layout_width="663dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="41dp"
+                android:background="@drawable/login_user_selector"
+                android:ems="10"
+                android:hint="请输入groupid:"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:textColor="#FF5500"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_user_id"
+                tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/img_close"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/close"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+            <!--    <ImageButton
+                    android:id="@+id/btn_go_class"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/goto_class_selector"
+                    android:text="进入教室"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/edt_plan_id"
+                    app:layout_constraintEnd_toEndOf="@+id/edt_plan_id"
+                    app:layout_constraintTop_toTopOf="@+id/edt_plan_id"
+                    tools:ignore="MissingConstraints" />-->
+
+            <ImageView
+                android:id="@+id/txt_plan_id"
+                android:layout_width="210dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="74dp"
+                android:gravity="center_vertical"
+                android:scaleType="fitXY"
+                android:src="@mipmap/yimiyun"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <RadioGroup
+                android:id="@+id/radio_appid"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:id="@+id/radio_appid_juren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="巨人"
+                    android:textColor="#FF5500"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_appid_jingrui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="精锐"
+                    android:textColor="#FF5500"
+                    />
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
