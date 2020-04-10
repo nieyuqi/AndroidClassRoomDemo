@@ -1,7 +1,9 @@
 package com.yhy.room.sdk.demo;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -23,11 +25,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yhy.baselib.bean_sc.SCUser;
 import com.yhy.baselib.data.SharedPreferenceUtils;
 import com.yhy.baselib.toast.MyToast;
 import com.yhy.baselib.util.KeyBoardUtils;
+import com.yhy.room.sdk.ICloudRoomSdk;
+import com.yhy.room.sdk.ICloudRoomSdk.LoginCallBack;
 import com.yhy.room.sdk.ctrl.CloudRoomSdkManager;
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -42,11 +49,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int REQUEST_STORAGE_PERMISSIONS = 1002;
 
     // 巨人大班课
-    private static final String APP_ID_JUREN = "***";
-    private static final String APP_KEY_JUREN = "***";
+//    private static final String APP_ID_YIMI = "7169a6c5ab5b4eeba2ca37b831fb9239";
+//    private static final String APP_KEY_YIMI = "fTvEfrTdSsP3uqZj";
     // 精锐1v1
-    private static final String APP_ID_JINGRUI = "***";
-    private static final String APP_KEY_JINGRUI = "***";
+    private static final String APP_ID_JINGRUI = "kiFBIeLYvxOuWFgwWOy1XFFFehdA2ovo";
+    private static final String APP_KEY_JINGRUI = "L6X0TIPFLQGkwEKM";
+    //溢米
+    private static final String APP_ID_YIMI = "3edaf2877c994a4e8739dbe34411e7d7";
+    private static final String APP_KEY_YIMI = "a995732df99bc794";
+
 
     private String appId = APP_ID_JINGRUI;
     private String appKey = APP_KEY_JINGRUI;
@@ -54,9 +65,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnChangeDemo;
     private Button btnPlayRecord;
     private Button btnCourseware;
+    private TextView tvPosition, tvRole;
+    private RelativeLayout rlPosition, rlRole;
     private EditText edt_plan_id;
     private EditText edt_user_id;
     private EditText edt_group_id;
+    private EditText edt_stu_id;
     private ImageView txtPlanId, img_close;
     private Button btnGoClass;
     private Button btnSetEnv;
@@ -64,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int clickCount = 0;
     private RadioGroup radioGroupAppId;
     private volatile boolean inited = false;
+    private int userType = SCUser.TYPE_STU;
     private Handler handler = new Handler(Looper.getMainLooper());
 
     private void initSDK() {
@@ -73,11 +88,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CloudRoomSdkManager.getInstance().init(MainActivity.this, true, appId, appKey);
         CloudRoomSdkManager.getInstance().setRoomSDKCallBack(new CloudRoomSdkManager.IRoomSDKCallBack() {
             @Override
-            public void onOpenRoomResult(@CloudRoomSdkManager.ErrorCode int code, String errMsg) {
-                if (code != CloudRoomSdkManager.LOAD_ROOM_SUCCESS) {
-                    //Toast.makeText(MainActivity.this, "Error：" + errMsg, Toast.LENGTH_LONG).show();
-                    Log.e(TAG, "onOpenRoomResult Error:" + errMsg + ", Code:" + code);
-                }
+            public void onOpenRoomResult(int code, String errMsg) {
+
+            }
+
+            @Override
+            public void onExitRoomResult(int code, String errMsg) {
+
             }
         });
         inited = true;
@@ -131,7 +148,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnChangeDemo = (Button) findViewById(R.id.btn_change_demo);
         btnPlayRecord = (Button) findViewById(R.id.btn_play_record);
         btnCourseware = (Button) findViewById(R.id.btn_courseware);
+        tvPosition = findViewById(R.id.tv_position);
+        tvRole = findViewById(R.id.tv_role);
+        rlPosition = findViewById(R.id.rl_position);
+        rlRole = findViewById(R.id.rl_role);
         edt_plan_id = (EditText) findViewById(R.id.edt_plan_id);
+        edt_stu_id = (EditText) findViewById(R.id.edt_stu_id);
         edt_plan_id.setText(SharedPreferenceUtils.getInstance(MainActivity.this).getStringValue(SP_KEY_PID, "360007015298240512"));
         edt_user_id = (EditText) findViewById(R.id.edt_user_id);
         edt_user_id.setText(SharedPreferenceUtils.getInstance(MainActivity.this).getIntValue(SP_KEY_UID, 911911) + "");
@@ -154,7 +176,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnGoClass.setOnTouchListener(this);
         btnPlayRecord.setOnTouchListener(this);
         btnSetEnv.setOnTouchListener(this);
-
+        rlPosition.setOnClickListener(this);
+        rlRole.setOnClickListener(this);
         // APP_ID选择, 默认精锐
         radioGroupAppId = findViewById(R.id.radio_appid);
         radioGroupAppId.setOnCheckedChangeListener(this);
@@ -211,10 +234,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_courseware:
                 KeyBoardUtils.keyBoardHide(btnGoClass, this);
                 openCourseware();
+
                 break;
             case R.id.btn_go_class:
                 KeyBoardUtils.keyBoardHide(btnGoClass, this);
+                findViewById(R.id.btn_go_class).setEnabled(false);
                 goClass();
+                findViewById(R.id.btn_go_class).setEnabled(true);
                 break;
             case R.id.btn_set_env:
                 setApiEnv();
@@ -229,6 +255,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnChangeDemo.setVisibility(View.GONE);
                 }
                 break;
+
+            case R.id.rl_role:
+                showRoleSelectDialog();
+                break;
+
+            case R.id.rl_position:
+                showPositionSelectDialog();
+                break;
+
             default:
                 break;
         }
@@ -239,18 +274,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void playRecord() {
         initSDK();
-        final String planId = edt_plan_id.getText().toString();
-        if (planId.equals("")) {
-            Toast.makeText(this, "请输入房间号码", LENGTH_SHORT).show();
-        }
-        CloudRoomSdkManager.getInstance().playRecord(appId, appKey, planId, 1);
-    }
 
-    /**
-     * 去上课
-     */
-    private void goClass() {
-        initSDK();
+        // get roomId
         String roomId = edt_plan_id.getText().toString();
         if (roomId.equals("")) {
             Toast.makeText(this, "请输入房间号", LENGTH_SHORT).show();
@@ -258,6 +283,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         SharedPreferenceUtils.getInstance(MainActivity.this).setStringValue(SP_KEY_PID, roomId);
 
+        // get userId
         int userId = 0;
         try {
             userId = Integer.parseInt(edt_user_id.getText().toString());
@@ -267,7 +293,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         SharedPreferenceUtils.getInstance(MainActivity.this).setIntValue(SP_KEY_UID, userId);
+        final int userIdFinal = userId;
 
+        // login
+        CloudRoomSdkManager.getInstance().login(userId, new LoginCallBack() {
+            public void onLoginFinish(boolean succ, String token, int code, String errMsg) {
+                Log.i(TAG, "getToken: succ=" + succ + ", token=" + token
+                        + ", code=" + code + ", msg=" + errMsg);
+                if (!succ) {
+                    Toast.makeText(MainActivity.this, "获取Token失败：" + errMsg, LENGTH_SHORT).show();
+                    return;
+                }
+
+                // 登录成功，打开录播
+                CloudRoomSdkManager.getInstance().playRecord(token, roomId, userIdFinal,
+                        MainActivity.this, 0,new ICloudRoomSdk.RecordCallBack() {
+                            @Override
+                            public void onOpenFinish(boolean succ, int code, String errMsg) {
+                                Log.i(TAG, "getToken: succ=" + succ + ", code=" + code + ", msg=" + errMsg);
+                                if (!succ) {
+                                    Toast.makeText(MainActivity.this, "打开录播失败：" + errMsg, LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
+    }
+
+    /**
+     * 去上课
+     */
+    private void goClass() {
+        initSDK();
+
+        // get roomId
+        String roomId = edt_plan_id.getText().toString();
+        if (roomId.equals("")) {
+            Toast.makeText(this, "请输入房间号", LENGTH_SHORT).show();
+            return;
+        }
+        SharedPreferenceUtils.getInstance(MainActivity.this).setStringValue(SP_KEY_PID, roomId);
+
+        // get userId
+        int userId = 0;
+        try {
+            userId = Integer.parseInt(edt_user_id.getText().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "用户ID错误", LENGTH_SHORT).show();
+            return;
+        }
+        int stuId = 0;
+        if (userType == SCUser.TYPE_ADT) {
+            try {
+                stuId = Integer.parseInt(edt_stu_id.getText().toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "学生ID错误", LENGTH_SHORT).show();
+                return;
+            }
+        }
+        final int stuIdFinal = stuId;
+        SharedPreferenceUtils.getInstance(MainActivity.this).setIntValue(SP_KEY_UID, userId);
+        final int userIdFinal = userId;
+
+        // get groupId
         int groupId = 1;
         try {
             groupId = Integer.parseInt(edt_group_id.getText().toString());
@@ -277,14 +367,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         SharedPreferenceUtils.getInstance(MainActivity.this).setIntValue(SP_KEY_GID, groupId);
+        final int groupIdFinal = groupId;
 
-        CloudRoomSdkManager.getInstance().joinCloudRoom(
-                roomId,
-                userId,
-                "https://imgstatic.juren.cn/B3PcvT04e7.jpg",
-                "安卓" + userId,
-                2,
-                groupId);
+        // login
+        CloudRoomSdkManager.getInstance().login(userId, new LoginCallBack() {
+            public void onLoginFinish(boolean succ, String token, int code, String errMsg) {
+                Log.i(TAG, "getToken: succ=" + succ + ", token=" + token
+                        + ", code=" + code + ", msg=" + errMsg);
+                if (!succ) {
+                    Toast.makeText(MainActivity.this, "获取Token失败：" + errMsg, LENGTH_SHORT).show();
+                    return;
+                }
+                CloudRoomSdkManager.getInstance().setRoomBackGroundImage(R.drawable.board_bg);
+                // 登录成功，进入教室
+                CloudRoomSdkManager.getInstance().joinCloudRoom(
+                        token,
+                        roomId,
+                        userIdFinal,
+                        stuIdFinal,
+                        "https://imgstatic.juren.cn/B3PcvT04e7.jpg",
+                        "安卓" + userIdFinal,
+                        2, // 学生角色
+                        groupIdFinal);
+            }
+        });
     }
 
     /**
@@ -296,7 +402,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (planId.equals("")) {
             Toast.makeText(this, "请输入房间号码", LENGTH_SHORT).show();
         }
-        CloudRoomSdkManager.getInstance().preViewDoc(appId, appKey, planId);
+        CloudRoomSdkManager.getInstance().preViewDoc(planId, new ICloudRoomSdk.CourseWareCallBack() {
+            @Override
+            public void onOpenFinish(boolean succ, int code, String errMsg) {
+                Log.i(TAG, "onOpenFinish: succ=" + succ + ", code=" + code + ", errMsg=" + errMsg);
+                if (!succ) {
+                    Toast.makeText(MainActivity.this, errMsg, LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     /**
@@ -320,6 +434,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
             }
         });
+    }
+
+    /**
+     * 选择角色
+     */
+    public void showRoleSelectDialog() {
+        final String items[] = {"学生", "旁听"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, 0);
+        builder.setTitle("选择角色");
+        // 设置列表显示，注意设置了列表显示就不要设置builder.setMessage()了，否则列表不起作用。
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                tvRole.setText("角色：" + items[which]);
+                if (items[which].equals("旁听")) {
+                    userType = SCUser.TYPE_ADT;
+                } else {
+                    userType = SCUser.TYPE_STU;
+                }
+            }
+        });
+        builder.create().show();
+    }
+
+    /**
+     * 选择身份
+     */
+    public void showPositionSelectDialog() {
+        final String items[] = {"学生", "家长"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, 0);
+        builder.setTitle("选择身份");
+        // 设置列表显示，注意设置了列表显示就不要设置builder.setMessage()了，否则列表不起作用。
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                tvPosition.setText("身份：" + items[which]);
+            }
+        });
+        builder.create().show();
     }
 
     /**
@@ -362,12 +517,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (checkedId == R.id.radio_appid_juren) {
-            appId = APP_ID_JUREN;
-            appKey = APP_KEY_JUREN;
+            appId = APP_ID_YIMI;
+            appKey = APP_KEY_YIMI;
             SharedPreferenceUtils.getInstance(MainActivity.this).setIntValue(SP_KEY_APP_ID, checkedId);
         } else if (checkedId == R.id.radio_appid_jingrui) {
             appId = APP_ID_JINGRUI;
             appKey = APP_KEY_JINGRUI;
+            SharedPreferenceUtils.getInstance(MainActivity.this).setIntValue(SP_KEY_APP_ID, checkedId);
+        } else if (checkedId == R.id.radio_appid_yimi) {
+            appId = APP_ID_YIMI;
+            appKey = APP_KEY_YIMI;
             SharedPreferenceUtils.getInstance(MainActivity.this).setIntValue(SP_KEY_APP_ID, checkedId);
         }
     }

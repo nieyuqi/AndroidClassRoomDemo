@@ -29,6 +29,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:replace="android:theme"
         >
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">
