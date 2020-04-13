@@ -33,6 +33,7 @@ import com.yhy.baselib.bean_sc.SCUser;
 import com.yhy.baselib.data.SharedPreferenceUtils;
 import com.yhy.baselib.toast.MyToast;
 import com.yhy.baselib.util.KeyBoardUtils;
+import com.yhy.room.sdk.ICloudRoomEnvType;
 import com.yhy.room.sdk.ICloudRoomSdk;
 import com.yhy.room.sdk.ICloudRoomSdk.LoginCallBack;
 import com.yhy.room.sdk.ctrl.CloudRoomSdkManager;
@@ -89,12 +90,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CloudRoomSdkManager.getInstance().setRoomSDKCallBack(new CloudRoomSdkManager.IRoomSDKCallBack() {
             @Override
             public void onOpenRoomResult(int code, String errMsg) {
-
+                if (code == CloudRoomSdkManager.LOAD_ROOM_SUCCESS) {
+                    //进入教室成功
+                }
             }
 
             @Override
             public void onExitRoomResult(int code, String errMsg) {
-
+                if (code == CloudRoomSdkManager.EXIT_ROOM_SUCCESS) {
+                    //退出教室成功
+                }
             }
         });
         inited = true;
@@ -307,10 +312,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 // 登录成功，打开录播
                 CloudRoomSdkManager.getInstance().playRecord(token, roomId, userIdFinal,
-                        MainActivity.this, 0,new ICloudRoomSdk.RecordCallBack() {
+                        MainActivity.this, 0, new ICloudRoomSdk.RecordCallBack() {
                             @Override
                             public void onOpenFinish(boolean succ, int code, String errMsg) {
-                                Log.i(TAG, "getToken: succ=" + succ + ", code=" + code + ", msg=" + errMsg);
                                 if (!succ) {
                                     Toast.makeText(MainActivity.this, "打开录播失败：" + errMsg, LENGTH_SHORT).show();
                                 }
@@ -434,6 +438,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
             }
         });
+    }
+
+    /**
+     * 设置环境：生产环境，测试环境等
+     * @param context  上下文
+     * @param url  环境url，必须是以下其中一个：
+     *              String PREFIX_PRODUCT = "";
+     *              String PREFIX_SIT01 = "sit01-";
+     *              String PREFIX_SIT02 = "sit02-";
+     *              String PREFIX_SIT03 = "sit03-";
+     *              String PREFIX_SIT04 = "sit04-";
+     */
+    private void setApiEnv(Context context,String url) {
+        CloudRoomSdkManager.getInstance().setEnvironment(context, ICloudRoomEnvType.PREFIX_SIT01);
     }
 
     /**
