@@ -406,7 +406,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (planId.equals("")) {
             Toast.makeText(this, "请输入房间号码", LENGTH_SHORT).show();
         }
-        CloudRoomSdkManager.getInstance().preViewDoc(planId, new ICloudRoomSdk.CourseWareCallBack() {
+        CloudRoomSdkManager.getInstance().preViewDoc(this,planId, new ICloudRoomSdk.CourseWareCallBack() {
             @Override
             public void onOpenFinish(boolean succ, int code, String errMsg) {
                 Log.i(TAG, "onOpenFinish: succ=" + succ + ", code=" + code + ", errMsg=" + errMsg);
